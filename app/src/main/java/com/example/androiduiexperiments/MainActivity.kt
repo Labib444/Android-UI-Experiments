@@ -63,6 +63,8 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
+import com.example.androiduiexperiments.ui.components.BasicBottomBar
+import com.example.androiduiexperiments.ui.components.BasicFloationActionBar
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
 
@@ -72,16 +74,17 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             AndroidUIExperimentsTheme {
-//                Scaffold(
-//                    topBar = { MyLargeTopAppBar() },
-//                    modifier = Modifier.fillMaxSize()
-//                ) { innerPadding ->
-//                    Greeting(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-//                    )
-//                }
-                TopBarWithTabs()
+                Scaffold(
+                    floatingActionButton = { BasicFloationActionBar() },
+                    bottomBar = { BasicBottomBar() },
+                    topBar = { MyLargeTopAppBar() },
+                    modifier = Modifier.fillMaxSize()
+                ) { innerPadding ->
+                    Greeting(
+                        name = "Android",
+                        modifier = Modifier.padding(innerPadding)
+                    )
+                }
             }
         }
     }
