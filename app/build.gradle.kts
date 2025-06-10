@@ -51,6 +51,7 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation("com.google.accompanist:accompanist-pager:0.34.0")
     implementation("com.google.accompanist:accompanist-pager-indicators:0.34.0")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

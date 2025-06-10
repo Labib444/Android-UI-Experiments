@@ -65,6 +65,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
 import com.example.androiduiexperiments.ui.components.BasicBottomBar
 import com.example.androiduiexperiments.ui.components.BasicFloationActionBar
+import com.example.androiduiexperiments.ui.screens.AccessibilityPermissionScreen
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
 
@@ -75,13 +76,13 @@ class MainActivity : ComponentActivity() {
         setContent {
             AndroidUIExperimentsTheme {
                 Scaffold(
-                    floatingActionButton = { BasicFloationActionBar() },
-                    bottomBar = { BasicBottomBar() },
-                    topBar = { MyLargeTopAppBar() },
+                    floatingActionButton = { AccessibilityPermissionScreen() },
+//                    bottomBar = { BasicBottomBar() },
+//                    topBar = { MyLargeTopAppBar() },
                     modifier = Modifier.fillMaxSize()
                 ) { innerPadding ->
                     Greeting(
-                        name = "Android",
+                        name = "",
                         modifier = Modifier.padding(innerPadding)
                     )
                 }
@@ -366,7 +367,7 @@ fun SettingsScreen() {
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
-        text = "Hello $name!",
+        text = "",
         modifier = modifier
     )
 }

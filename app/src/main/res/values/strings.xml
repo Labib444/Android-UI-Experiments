@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Android UI Experiments</string>
+    <string name="accessibility_description">My Accessibility Service for detecting foreground apps</string>
 </resources>
