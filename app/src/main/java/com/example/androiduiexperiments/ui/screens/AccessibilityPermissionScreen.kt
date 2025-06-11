@@ -30,6 +30,7 @@ import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LocalLifecycleOwner
 import com.example.androiduiexperiments.state.AccessibilityPermissionScreenViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavController
 import com.example.androiduiexperiments.helpers.PermissionChecker
 import com.example.androiduiexperiments.service.MyAccessibilityService
 import com.example.androiduiexperiments.state.UiEvent
@@ -37,7 +38,7 @@ import com.example.androiduiexperiments.state.UiEvent
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun AccessibilityPermissionScreen(viewModel: AccessibilityPermissionScreenViewModel = viewModel()) {
+fun AccessibilityPermissionScreen(viewModel: AccessibilityPermissionScreenViewModel = viewModel(), navController: NavController) {
     val uiState by viewModel.uiState.collectAsState()
     val context = LocalContext.current
     val lifecycleOwner = LocalLifecycleOwner.current
@@ -85,5 +86,10 @@ fun AccessibilityPermissionScreen(viewModel: AccessibilityPermissionScreenViewMo
     ){
         Text(text = "Accessibility Permission", modifier = Modifier.fillMaxWidth().padding(8.dp))
         Switch(checked = uiState.switchOn, enabled = true, onCheckedChange = { isChecked -> viewModel.switchToggled(isChecked) })
+        if(uiState.switchOn){
+            Button (onClick = { navController.navigate("firebase_connection/123") }) {
+                Text("Go To FireBaseConnectionScreen")
+            }
+        }
     }
 }

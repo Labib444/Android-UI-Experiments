@@ -63,8 +63,11 @@ import androidx.compose.material.icons.filled.Menu
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.androiduiexperiments.ui.components.BasicBottomBar
 import com.example.androiduiexperiments.ui.components.BasicFloationActionBar
+import com.example.androiduiexperiments.ui.navigation.AppNavHost
 import com.example.androiduiexperiments.ui.screens.AccessibilityPermissionScreen
 import com.google.accompanist.pager.*
 import kotlinx.coroutines.launch
@@ -74,19 +77,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            AndroidUIExperimentsTheme {
-                Scaffold(
-                    floatingActionButton = { AccessibilityPermissionScreen() },
-//                    bottomBar = { BasicBottomBar() },
-//                    topBar = { MyLargeTopAppBar() },
-                    modifier = Modifier.fillMaxSize()
-                ) { innerPadding ->
-                    Greeting(
-                        name = "",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+            val navController = rememberNavController()
+            AppNavHost(navController = navController)
         }
     }
 }
